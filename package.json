@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel serve src/index.html",
-    "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html ",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "start": "parcel ./src/index.html",
+    "prebuild-dev": "shx rm -rf dist/*",
+    "build-dev": "parcel build ./src/index.html --no-optimize --public-url ./",
+    "prebuild": "shx rm -rf dist/*",
+    "build": "parcel build ./src/index.html --public-url ./",
+    "push-gh-pages": "gh-pages -d dist"
   },
-  "homepage": "https://Brajesh825.github.io/Brick-Breaker-Typescript",
+  "homepage": "https://Brajesh825.github.io/Brick-Breaker-Typescript-",
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "css-loader": "^6.7.1",
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^4.0.0",
+    "shx": "^0.3.4"
   }
 }
